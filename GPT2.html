@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Image Captioning with GPT-2 - Allison Lu</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kelly
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-2">
+
+          <div class="col-lg-4">
+
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="portfolio-info">
+            <h3>Image Captioning with GPT-2</h3>
+            <ul>
+              <li><strong>Category</strong>: Transformer-based architecture</li>
+              <li><strong>Made with GPT-2, ViT, Python</strong></li>
+            </ul>
+          </div>
+          <div class="portfolio-description">
+            <h2>Experience</h2>
+            <p>
+              The goal of this project is to improve image captioning through exploring transformer-based architectures
+              that combine vision and language.
+              Although previous works have combined image and text with transformers for various tasks, our model
+              provides
+              competetively accurate captioning with the computational efficiency and scalability of transformers. This
+              will
+              aid in the search for efficient multi-modal architectures as well as aid in the important goal to reduce
+              carbon
+              emissions from computing.
+            </p>
+            <p>
+              With the below architecture, we fed raw text and image from our the dataset into pre-trained GPT2 and ViT,
+              respectively, to obtain the desired embeddings. We then fed these hidden states into pre-trained GPT2
+              layers and ViT layers.
+
+              <br />
+              <img src="https://github.gatech.edu/storage/user/59298/files/c0a67afc-5c3f-4fe2-a44e-8d8f92328feb"
+              alt="architecture" />
+              <br />
+
+              Hidden states were then concatenated and applied with multi-head attention with a skipped connection and
+              batch normalization. We applied the masking strategy shown below so that text-text attention was strictly
+              causal while also masking image-to-text attention to prevent images from leaking data to text between
+              layers.
+
+              <br />
+              <img src="https://github.gatech.edu/storage/user/59298/files/815267c3-6324-433e-b850-a13df16e28c2" />
+              <br />
+
+              We then sent the hidden state through an MLP with another skipped connection and batch norm.
+
+              Finally, the hidden state was deconcatenated to be able to send through the pre-trained layers in the next
+              round.
+
+              This is performed 12 times as the base versions of both GPT2 and ViT-base both have 12 layers.
+
+              For generation, the image hidden state is ignored and the text hidden state is passed through the
+              pretrained GPT2 language modelling head.
+              This generates a sequence of token logits which are softmaxed, and we perform simple multinomial sampling
+              on the last token prediction.
+            </p>
+
+            <p>This model and architecture gave us the following results:
+              <br />
+              <table>
+                <tr>
+                  <th>Metric    </th>
+                  <th>Score</th>
+                </tr>
+                <tr>
+                  <td>Bleu-1</td>
+                  <td>63.6%</td>
+                </tr>
+                <tr>
+                  <td>Bleu-2</td>
+                  <td>42.0%</td>
+                </tr>
+                <tr>
+                  <td>Bleu-3</td>
+                  <td>27.6%</td>
+                </tr>
+                <tr>
+                  <td>CIDEr</td>
+                  <td>60.3%</td>
+                </tr>
+              </table>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

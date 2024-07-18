@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Paper Planes - Allison Lu</title>
+  <title>Outdoor Visual Positioning - Allison Lu</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -55,30 +55,28 @@
 
         <div class="col-lg-12">
           <div class="portfolio-info">
-            <h3>Pool</h3>
+            <h3>Outdoor Visual Positioning</h3>
+            <iframe src="https://drive.google.com/file/d/1dU9EspiglsJ7QZU0zZh-FQcoZ3JZgA3b/preview" width="640" height="480" allow="autoplay"></iframe>
             <ul>
-              <li><strong>Category</strong>: Web Developement</li>
-              <li><strong>Made with React, Node.js, and Firebase</strong></li>
-              <!-- <li><strong>Try it: </strong> <a
-                href="http://simpool.tech/">http://simpool.tech/</a></li> -->
+              <li><strong>Category</strong>: App</li>
+              <li><strong>Made with Flutter and ResNet-152</strong></li>
+              <li><strong>Github Repo: </strong> <a
+                  href="https://github.com/AllisanLu/Building-Labeler">https://github.com/AllisanLu/Building-Labeler</a></li>
             </ul>
           </div>
           <div class="portfolio-description">
             <h2>Experience</h2>
-            <p>This application was first created during Hackgt9. It allows for users to better organize their carpooling groups.</p>
-            <br />
             <p>
-              In this project, we created a website that allows for people to easily create carpooling groups. By going to our site,
-              users are able to create events they would like to carpool to. Then each event has its own unique link. By
-              sending that link to friends, they can then add themselves as drivers if they have a car
-              or join a car as a rider. With Pool, it is easy to plan carpooling groups. Not only that, there is a built in chat 
-              function, that allows people to communicate important information for each car like pick up location and time. 
-              We also allows for people to put in information about their cars and the drivers to make pick up go smoother.
+              This project uses the pre-trained ResNet-152 model and localization information to create a more accurate and efficient Georgia Tech building labeler. By
+              taking a phone's compass bearing and latitude and longitude coordinates, we are able to narrow down the buildings in the database the CNN does feature matching with.
+              Not only are we able to eliminate buildings that would not be correct due to their location, we are also able to make the program more efficient by decreasing the number
+              of matchings. With the addition of coordinates and compass bearings we increased the accuracy of the program from 72% to 86%.
             </p>
             <p>
-                I am working as a full stack developer for this application, but mainly on the frontend side of things. Using React 
-                and the Material UI library, I have created an intuitive and appealing site that allows for ease of use on both mobile and PC. 
+              For this app, we wanted it to be compatible on different phone types for testing purposes, so we used Flutter to develop it. To connect the app to the model, we used a 
+              server to host the model and had the app do API calls to send location information and photos then to recieve the name of the building as well. 
             </p>
+            <img src="assets/img/outdoor/architecture.png" alt="architecture"/>
           </div>
 
         </div>
