@@ -75,22 +75,25 @@
               emissions from computing.
             </p>
             <p>
-              With the below architecture, we fed raw text and image from our the dataset into pre-trained GPT2 and ViT,
-              respectively, to obtain the desired embeddings. We then fed these hidden states into pre-trained GPT2
+              We fed raw text and image from our the dataset into our transformer architecture to obtain the desired embeddings. 
+              Then we fed these hidden states into pre-trained GPT2
               layers and ViT layers.
 
-              <br />
+              <!-- <br />
               <img src="https://github.gatech.edu/storage/user/59298/files/c0a67afc-5c3f-4fe2-a44e-8d8f92328feb"
               alt="architecture" />
+              <br /> -->
               <br />
-
+              <br />
               Hidden states were then concatenated and applied with multi-head attention with a skipped connection and
               batch normalization. We applied the masking strategy shown below so that text-text attention was strictly
               causal while also masking image-to-text attention to prevent images from leaking data to text between
               layers.
-
+<!-- 
               <br />
               <img src="https://github.gatech.edu/storage/user/59298/files/815267c3-6324-433e-b850-a13df16e28c2" />
+              <br /> -->
+              <br />
               <br />
 
               We then sent the hidden state through an MLP with another skipped connection and batch norm.
